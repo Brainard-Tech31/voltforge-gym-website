@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VOLT//FORGE — Classes</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#090a09;color:#f2f3ed;font-family:Arial,Helvetica,sans-serif}
+a{color:inherit;text-decoration:none}button{font:inherit}.nav{height:78px;padding:0 4vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #222;background:#090a09;position:sticky;top:0;z-index:20}
+.logo{font-weight:900;letter-spacing:-1px}.logo span{color:#c7ff35}.links{display:flex;gap:28px;font-size:13px;text-transform:uppercase;letter-spacing:1.4px}.links a:hover{color:#c7ff35}.menu{display:none;border:0;background:none;color:inherit;cursor:pointer}
+.hero{min-height:62vh;padding:9vw 5vw 6vw;display:flex;align-items:end;justify-content:space-between;background:linear-gradient(90deg,#090a09 0%,#090a09dd 48%,#090a0940),url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=2200&q=85') center/cover}
+.kicker{color:#c7ff35;font-size:12px;letter-spacing:3px;font-weight:800}.hero h1{font-size:clamp(64px,11vw,170px);line-height:.82;margin:18px 0 0;letter-spacing:-7px;text-transform:uppercase}.hero p{max-width:540px;color:#b9bcb4;font-size:18px;line-height:1.6;margin:0 0 12px}
+.bar{padding:22px 5vw;border-block:1px solid #252724;display:flex;gap:10px;overflow:auto}.filter{border:1px solid #383b36;background:#10120f;color:#d8dbd2;padding:12px 18px;text-transform:uppercase;font-size:11px;letter-spacing:1.5px;white-space:nowrap;cursor:pointer}.filter.active,.filter:hover{background:#c7ff35;color:#080908;border-color:#c7ff35}
+.section{padding:90px 5vw}.section-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:38px}.eyebrow{font-size:11px;color:#c7ff35;letter-spacing:2px;font-weight:800}.section h2{font-size:clamp(38px,6vw,84px);line-height:.9;letter-spacing:-3px;margin:10px 0 0;text-transform:uppercase}.muted{color:#92968e;max-width:480px;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#272a25}.card{background:#10120f;min-height:360px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}.card:after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,transparent 40%,#c7ff3510);pointer-events:none}.tag{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#c7ff35}.card h3{font-size:38px;line-height:.9;letter-spacing:-2px;text-transform:uppercase;margin:14px 0}.meta{display:flex;gap:18px;color:#9fa39a;font-size:12px;text-transform:uppercase;letter-spacing:1px}.coach{font-size:13px;color:#d7dad1}.card button{align-self:flex-start;border:1px solid #4a4d47;background:transparent;color:#f2f3ed;padding:12px 16px;text-transform:uppercase;font-size:11px;letter-spacing:1.4px;cursor:pointer}.card button:hover{background:#c7ff35;color:#080908;border-color:#c7ff35}
+.feature{display:grid;grid-template-columns:1.3fr .7fr;min-height:520px}.feature-img{background:url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1600&q=85') center/cover}.feature-copy{padding:52px;background:#c7ff35;color:#080908;display:flex;flex-direction:column;justify-content:space-between}.feature-copy h3{font-size:clamp(48px,7vw,100px);line-height:.82;letter-spacing:-5px;margin:14px 0;text-transform:uppercase}.feature-copy p{font-size:16px;line-height:1.6;max-width:480px}.cta{padding:100px 5vw;background:#c7ff35;color:#080908;display:flex;justify-content:space-between;align-items:end;gap:40px}.cta h2{font-size:clamp(50px,9vw,130px);line-height:.82;letter-spacing:-6px;margin:0;text-transform:uppercase}.cta a{border:1px solid #080908;padding:16px 22px;text-transform:uppercase;font-size:11px;letter-spacing:1.5px;font-weight:800}
+.footer{padding:35px 5vw;display:flex;justify-content:space-between;color:#73776f;font-size:11px;text-transform:uppercase;letter-spacing:1px}
+.modal{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;z-index:40;padding:20px}.modal.show{display:flex}.modal-box{width:min(680px,100%);background:#11130f;border:1px solid #3b3e38;padding:36px}.close{float:right;background:none;border:0;color:#fff;font-size:25px;cursor:pointer}.modal h3{font-size:54px;line-height:.9;text-transform:uppercase;margin:30px 0 15px}.modal p{color:#aeb2a9;line-height:1.7}.book{margin-top:20px;background:#c7ff35;border:0;padding:15px 20px;font-weight:800;text-transform:uppercase;cursor:pointer}
+@media(max-width:800px){.links{display:none}.links.mobile-open{display:flex;position:absolute;top:78px;left:15px;right:15px;flex-direction:column;gap:18px;padding:20px;background:#10120f;border:1px solid #30342e;z-index:30}.menu{display:block}.hero{min-height:70vh;padding:18vw 6vw 10vw}.hero h1{letter-spacing:-4px}.grid{grid-template-columns:1fr}.feature{grid-template-columns:1fr}.feature-img{min-height:400px}.section-head{display:block}.cta{display:block}.cta a{display:inline-block;margin-top:30px}.footer{display:block;line-height:2}}
+</style>
+</head>
+<body>
+<nav class="nav"><a class="logo" href="index.html">VOLT<span>//</span>FORGE</a><div class="links"><a href="index.html">Home</a><a href="programs.html">Programs</a><a class="active" href="classes.html">Classes</a><a href="trainers.html">Trainers</a><a href="results.html">Results</a><a href="join.html">Join</a></div><button class="menu" aria-label="Open menu">MENU</button></nav>
+
+<header class="hero">
+<div><div class="kicker">TRAIN HARD. MOVE BETTER.</div><h1>CLASS<br>FLOOR</h1></div>
+<p>Purpose-built sessions for strength, conditioning, movement and performance. Choose your class. Show up ready.</p>
+</header>
+
+<div class="bar" id="filters">
+<button class="filter active" data-filter="all">All classes</button><button class="filter" data-filter="strength">Strength</button><button class="filter" data-filter="conditioning">Conditioning</button><button class="filter" data-filter="hiit">HIIT</button><button class="filter" data-filter="mobility">Mobility</button><button class="filter" data-filter="recovery">Recovery</button>
+</div>
+
+<section class="section">
+<div class="section-head"><div><div class="eyebrow">THIS WEEK</div><h2>Find your<br>session.</h2></div><p class="muted">From heavy lifts to high-output conditioning, every session is coached with purpose and built to keep you progressing.</p></div>
+<div class="grid" id="classGrid">
+<article class="card" data-type="strength"><div><span class="tag">Strength · Mon 06:30</span><h3>Forge<br>Strength</h3><div class="meta"><span>60 MIN</span><span>LEVEL 2–3</span></div></div><div><p class="coach">COACH — Daniel Okafor</p><button onclick="openModal('Forge Strength','Heavy compound movements, controlled volume and progressive overload.')">View class</button></div></article>
+<article class="card" data-type="hiit"><div><span class="tag">HIIT · Tue 18:00</span><h3>Pulse<br>HIIT</h3><div class="meta"><span>45 MIN</span><span>ALL LEVELS</span></div></div><div><p class="coach">COACH — Amara Bell</p><button onclick="openModal('Pulse HIIT','Short, sharp intervals combining cardio, strength and athletic movement.')">View class</button></div></article>
+<article class="card" data-type="conditioning"><div><span class="tag">Conditioning · Wed 07:00</span><h3>Engine<br>Room</h3><div class="meta"><span>50 MIN</span><span>LEVEL 2–3</span></div></div><div><p class="coach">COACH — Marcus Reed</p><button onclick="openModal('Engine Room','Build work capacity through sleds, carries, intervals and full-body circuits.')">View class</button></div></article>
+<article class="card" data-type="strength"><div><span class="tag">Strength · Thu 18:30</span><h3>Upper<br>Power</h3><div class="meta"><span>55 MIN</span><span>LEVEL 2</span></div></div><div><p class="coach">COACH — Daniel Okafor</p><button onclick="openModal('Upper Power','A focused upper-body strength session built around pressing, pulling and loaded carries.')">View class</button></div></article>
+<article class="card" data-type="mobility"><div><span class="tag">Mobility · Fri 07:30</span><h3>Move<br>Better</h3><div class="meta"><span>45 MIN</span><span>ALL LEVELS</span></div></div><div><p class="coach">COACH — Sophia James</p><button onclick="openModal('Move Better','Restore range, control and quality of movement with guided mobility work.')">View class</button></div></article>
+<article class="card" data-type="recovery"><div><span class="tag">Recovery · Sat 10:00</span><h3>Reset<br>Session</h3><div class="meta"><span>40 MIN</span><span>ALL LEVELS</span></div></div><div><p class="coach">COACH — Sophia James</p><button onclick="openModal('Reset Session','Breathing, mobility and low-intensity movement designed to help you recover.')">View class</button></div></article>
+</div>
+</section>
+
+<section class="section" style="padding-top:20px"><div class="feature"><div class="feature-img"></div><div class="feature-copy"><div><div class="eyebrow" style="color:#080908">SIGNATURE SESSION</div><h3>Saturday<br>Forge.</h3><p>Our weekly full-body test. Strength, conditioning and grit in one coached 60-minute session.</p></div><strong>LIMITED SPOTS · 10:00 AM</strong></div></div></section>
+
+<section class="cta"><h2>Show up.<br>Level up.</h2><a href="join.html">Join the forge →</a></section>
+<footer class="footer"><span>© 2026 VOLT//FORGE</span><span>Built for the relentless.</span></footer>
+
+<div class="modal" id="modal"><div class="modal-box"><button class="close" onclick="closeModal()">×</button><div class="eyebrow">CLASS DETAILS</div><h3 id="modalTitle"></h3><p id="modalText"></p><button class="book" onclick="alert('Demo booking confirmed — frontend only.')">Book this class</button></div></div>
+<script>
+const buttons=[...document.querySelectorAll('.filter')], cards=[...document.querySelectorAll('.card')];
+buttons.forEach(b=>b.onclick=()=>{buttons.forEach(x=>x.classList.remove('active'));b.classList.add('active');const f=b.dataset.filter;cards.forEach(c=>c.style.display=f==='all'||c.dataset.type===f?'flex':'none')});
+function openModal(t,d){document.getElementById('modalTitle').textContent=t;document.getElementById('modalText').textContent=d;document.getElementById('modal').classList.add('show')}
+function closeModal(){document.getElementById('modal').classList.remove('show')}
+document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});
+const menu=document.querySelector('.menu'),links=document.querySelector('.links');menu?.addEventListener('click',()=>links?.classList.toggle('mobile-open'));links?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('mobile-open')));</script>
+</body></html>
